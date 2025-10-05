@@ -1,0 +1,19 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: RsiBot
+
+
+  rabbitmq:
+    queue:
+      message: "message_queue"
+      answer: "answer_queue"
+
+telegram:
+  bot:
+    username: "RsiBot"
+    token: ${TELEGRAM_BOT_TOKEN}
+    url: ${TELEGRAM_BOT_URL}
+    webhook-path: "/update"
