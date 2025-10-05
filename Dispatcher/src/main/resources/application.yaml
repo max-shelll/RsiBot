@@ -17,3 +17,7 @@ telegram:
     token: ${TELEGRAM_BOT_TOKEN}
     url: ${TELEGRAM_BOT_URL}
     webhook-path: "/update"
+
+gateway:
+  base: "http://localhost:8090"
+  rsi: "http://localhost:8090/api/v1/rsi"

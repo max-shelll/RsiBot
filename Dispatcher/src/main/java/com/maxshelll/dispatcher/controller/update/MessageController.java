@@ -1,6 +1,7 @@
 package com.maxshelll.dispatcher.controller.update;
 
 import com.maxshelll.dispatcher.enumeration.UpdateType;
+import com.maxshelll.dispatcher.property.GatewayProperty;
 import com.maxshelll.dispatcher.property.rabbitmq.RabbitMQProperty;
 import com.maxshelll.dispatcher.service.producer.ProducerService;
 import lombok.RequiredArgsConstructor;
@@ -16,8 +17,9 @@ import java.net.URI;
 @RequiredArgsConstructor
 public class MessageController implements UpdateController {
 
-    private final ProducerService updateProducerService;
+    private final ProducerService producerService;
     private final RabbitMQProperty rabbitMQProperty;
+    private final GatewayProperty gatewayProperty;
     private final WebClient webClient;
 
     @Override
@@ -31,7 +33,7 @@ public class MessageController implements UpdateController {
         }
 
         String queueName = rabbitMQProperty.getQueue().getMessage();
-        updateProducerService.produce(queueName, update);
+        producerService.produce(queueName, update);
     }
 
     @Override
@@ -45,7 +47,7 @@ public class MessageController implements UpdateController {
         var symbol = message.split("\n")[0];
         var interval = message.split("\n")[1];
 
-        URI uri = UriComponentsBuilder.fromHttpUrl("http://localhost:8090/api/v1/rsi")
+        URI uri = UriComponentsBuilder.fromHttpUrl(gatewayProperty.getRsi())
                 .queryParam("symbol", symbol)
                 .queryParam("interval", interval)
                 .build()
@@ -62,6 +64,6 @@ public class MessageController implements UpdateController {
         sendMessage.setText("RSI of %s - %d".formatted(symbol, rsiValue));
 
         String queueName = rabbitMQProperty.getQueue().getAnswer();
-        updateProducerService.produceAnswer(queueName, sendMessage);
+        producerService.produceAnswer(queueName, sendMessage);
     }
 }
