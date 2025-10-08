@@ -11,8 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class RsiController {
 
     @GetMapping
-    public ResponseEntity<Integer> get(@RequestParam String symbol, @RequestParam String interval)
-    {
+    public ResponseEntity<Integer> get(@RequestParam String symbol, @RequestParam String interval) {
         return ResponseEntity.ok(25);
     }
 }

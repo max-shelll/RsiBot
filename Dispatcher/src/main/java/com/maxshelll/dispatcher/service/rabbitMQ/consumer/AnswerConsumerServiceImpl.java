@@ -1,4 +1,4 @@
-package com.maxshelll.dispatcher.service.consumer;
+package com.maxshelll.dispatcher.service.rabbitMQ.consumer;
 
 import com.maxshelll.dispatcher.configuration.TelegramBotConfig;
 import lombok.RequiredArgsConstructor;

@@ -1,4 +1,4 @@
-package com.maxshelll.dispatcher.service.consumer;
+package com.maxshelll.dispatcher.service.rabbitMQ.consumer;
 
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 
