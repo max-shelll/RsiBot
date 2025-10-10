@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Data
 @Configuration
-@ConfigurationProperties(prefix = "spring.rabbitmq")
+@ConfigurationProperties(prefix = "rabbitmq")
 public class RabbitMQProperty {
     private String host;
     private int port;

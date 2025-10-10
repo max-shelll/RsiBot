@@ -15,7 +15,7 @@ public class AnswerConsumerServiceImpl implements AnswerConsumerService {
 
     @Override
     @SneakyThrows
-    @RabbitListener(queues = "answer_queue")
+    @RabbitListener(queues = "${rabbitmq.queue.answer}")
     public void consume(SendMessage sendMessage) {
         telegramBot.execute(sendMessage);
     }

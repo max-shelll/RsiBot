@@ -6,10 +6,10 @@ spring:
     name: RsiBot
 
 
-  rabbitmq:
-    queue:
-      message: "message_queue"
-      answer: "answer_queue"
+rabbitmq:
+  queue:
+    message: "message_queue"
+    answer: "answer_queue"
 
 telegram:
   bot:
