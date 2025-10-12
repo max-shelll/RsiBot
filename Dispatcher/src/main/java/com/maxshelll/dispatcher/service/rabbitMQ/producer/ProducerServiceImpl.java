@@ -15,8 +15,8 @@ public class ProducerServiceImpl implements ProducerService {
     private final RabbitMQProperty rabbitMQProperty;
 
     @Override
-    public void produce(String rabbitQueue, Update update) {
-        rabbitTemplate.convertAndSend(rabbitQueue, update);
+    public void produceMessage(Update update) {
+        rabbitTemplate.convertAndSend(rabbitMQProperty.getQueue().getMessage(), update);
     }
 
     @Override

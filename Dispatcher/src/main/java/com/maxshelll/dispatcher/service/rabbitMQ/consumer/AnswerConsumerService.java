@@ -9,7 +9,7 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 
 @Service
 @RequiredArgsConstructor
-public class AnswerConsumerService {
+public class AnswerConsumerService{
 
     private final TelegramBotConfig telegramBot;
 

@@ -14,7 +14,7 @@ import java.util.List;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class RSIServiceImpl implements RSIService {
+public class BingXRSIServiceImpl implements RSIService {
 
     private static final int DEFAULT_RSI_PERIOD = 14;
     private static final int DEFAULT_KLINES_LIMIT = 20;
@@ -24,14 +24,14 @@ public class RSIServiceImpl implements RSIService {
     @Override
     public Double fetchRSI(String symbol, String interval) {
         try {
-            List<KlineDto> klines = fetchKlineDataFromBingX(symbol, interval, DEFAULT_KLINES_LIMIT);
+            List<KlineDto> klines = fetchKlineDataFromBingX(symbol, interval);
 
             if (klines == null || klines.size() < DEFAULT_RSI_PERIOD + 1) {
                 log.warn("Not enough data to calculate RSI for {} (received: {})", symbol, klines != null ? klines.size() : 0);
                 return null;
             }
 
-            return calculateRSI(klines, DEFAULT_RSI_PERIOD);
+            return calculateRSI(klines);
 
         } catch (Exception e) {
             log.error("Error fetching RSI for {}: {}", symbol, e.getMessage());
@@ -39,13 +39,13 @@ public class RSIServiceImpl implements RSIService {
         }
     }
 
-    private List<KlineDto> fetchKlineDataFromBingX(String symbol, String interval, int limit) {
+    private List<KlineDto> fetchKlineDataFromBingX(String symbol, String interval) {
         try {
             Mono<BingXRSIDto> responseMono = webClient.get()
                     .uri(uriBuilder -> uriBuilder
                             .queryParam("symbol", symbol)
                             .queryParam("interval", interval)
-                            .queryParam("limit", limit)
+                            .queryParam("limit", DEFAULT_KLINES_LIMIT)
                             .build())
                     .retrieve()
                     .bodyToMono(BingXRSIDto.class);
@@ -68,8 +68,8 @@ public class RSIServiceImpl implements RSIService {
         }
     }
 
-    private Double calculateRSI(List<KlineDto> klines, int period) {
-        if (klines.size() < period + 1) {
+    private Double calculateRSI(List<KlineDto> klines) {
+        if (klines.size() < DEFAULT_RSI_PERIOD + 1) {
             return null;
         }
 
@@ -92,19 +92,19 @@ public class RSIServiceImpl implements RSIService {
                 losses.add(Math.max(-delta, 0.0));
             }
 
-            double avgGain = gains.subList(0, period).stream()
+            double avgGain = gains.subList(0, DEFAULT_RSI_PERIOD).stream()
                     .mapToDouble(Double::doubleValue)
                     .average()
                     .orElse(0.0);
 
-            double avgLoss = losses.subList(0, period).stream()
+            double avgLoss = losses.subList(0, DEFAULT_RSI_PERIOD).stream()
                     .mapToDouble(Double::doubleValue)
                     .average()
                     .orElse(0.0);
 
-            for (int i = period; i < gains.size(); i++) {
-                avgGain = (avgGain * (period - 1) + gains.get(i)) / period;
-                avgLoss = (avgLoss * (period - 1) + losses.get(i)) / period;
+            for (int i = DEFAULT_RSI_PERIOD; i < gains.size(); i++) {
+                avgGain = (avgGain * (DEFAULT_RSI_PERIOD - 1) + gains.get(i)) / DEFAULT_RSI_PERIOD;
+                avgLoss = (avgLoss * (DEFAULT_RSI_PERIOD - 1) + losses.get(i)) / DEFAULT_RSI_PERIOD;
             }
 
             if (avgLoss == 0) {
