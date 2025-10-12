@@ -11,4 +11,3 @@ public class RabbitMQQueueProperty {
     private String message;
     private String answer;
 }
-

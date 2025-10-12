@@ -1,2 +1,5 @@
 server:
   port: 8090
+
+gateway:
+  base: "https://open-api.bingx.com/openApi/swap/v2/quote/klines"

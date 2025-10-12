@@ -15,18 +15,20 @@ public class MessageUpdateController implements UpdateController {
 
     @Override
     public void request(Update update) {
-        var message = update.getMessage().getText().toLowerCase();
+        String message = update.getMessage().getText().toLowerCase();
+        String[] lines = message.split("\n");
 
-        if (message.contains("usdt")) {
-            var symbol = message.split("\n")[0];
-            var interval = message.split("\n")[1];
-            var chatId = update.getMessage().getChatId();
+        if ((message.contains("-usdt") || message.contains("-usdc")) && lines.length == 2) {
+            String symbol = lines[0];
+            String interval = lines[1];
+            Long chatId = update.getMessage().getChatId();
 
-            messageUpdateService.request(chatId, symbol, interval);
+            messageUpdateService.requestCoin(chatId, symbol, interval);
         } else {
-            messageUpdateService.request(update);
+            messageUpdateService.requestUnsupportedText(update);
         }
     }
+
 
     @Override
     public UpdateType getType() {

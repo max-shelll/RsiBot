@@ -42,7 +42,7 @@ public class TelegramBotConfig extends TelegramWebhookBot {
     @PostConstruct
     private void initializeWebhook() {
         try {
-            var webhook = SetWebhook.builder()
+            SetWebhook webhook = SetWebhook.builder()
                     .url(telegramProperty.getUrl())
                     .build();
 
