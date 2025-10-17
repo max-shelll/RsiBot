@@ -1,6 +1,6 @@
 package com.maxshelll.dispatcher.service.rabbitMQ.consumer;
 
-import com.maxshelll.dispatcher.config.TelegramBotConfig;
+import com.maxshelll.dispatcher.TelegramBot;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -11,7 +11,7 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 @RequiredArgsConstructor
 public class AnswerConsumerService{
 
-    private final TelegramBotConfig telegramBot;
+    private final TelegramBot telegramBot;
 
     @SneakyThrows
     @RabbitListener(queues = "${rabbitmq.queue.answer}")
