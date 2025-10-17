@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>com.max-shelll</groupId>
-    <artifactId>Dispatcher</artifactId>
+    <artifactId>dispatcher</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Dispatcher</name>
     <description>Dispatcher</description>
