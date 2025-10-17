@@ -14,7 +14,8 @@ public class MessageUpdateController implements UpdateController {
 
     @Override
     public void request(Update update) {
-        producerService.produceMessage(update);
+        if (update.hasMessage() && update.getMessage().hasText())
+            producerService.produceMessage(update);
     }
 
 
