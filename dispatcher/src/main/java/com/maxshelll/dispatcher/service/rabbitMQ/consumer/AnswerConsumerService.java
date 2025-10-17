@@ -1,6 +1,6 @@
 package com.maxshelll.dispatcher.service.rabbitMQ.consumer;
 
-import com.maxshelll.dispatcher.configuration.TelegramBotConfig;
+import com.maxshelll.dispatcher.config.TelegramBotConfig;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;

@@ -1,6 +1,6 @@
 package com.maxshelll.dispatcher.controller.update;
 
-import com.maxshelll.dispatcher.enumeration.UpdateType;
+import com.maxshelll.dispatcher.dto.UpdateType;
 import com.maxshelll.dispatcher.service.rabbitMQ.producer.ProducerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;

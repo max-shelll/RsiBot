@@ -1,6 +1,6 @@
 package com.maxshelll.dispatcher.controller;
 
-import com.maxshelll.dispatcher.configuration.TelegramBotConfig;
+import com.maxshelll.dispatcher.config.TelegramBotConfig;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;

@@ -1,6 +1,5 @@
-package com.maxshelll.dispatcher.configuration;
+package com.maxshelll.dispatcher.config;
 
-import com.maxshelll.dispatcher.property.TelegramProperty;
 import com.maxshelll.dispatcher.service.DispatcherService;
 import jakarta.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
@@ -14,10 +13,10 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 @Configuration
 public class TelegramBotConfig extends TelegramWebhookBot {
 
-    private final TelegramProperty telegramProperty;
+    private final TelegramProperties telegramProperty;
     private final DispatcherService dispatcherService;
 
-    public TelegramBotConfig(TelegramProperty telegramProperty, DispatcherService dispatcherService) {
+    public TelegramBotConfig(TelegramProperties telegramProperty, DispatcherService dispatcherService) {
         super(telegramProperty.getToken());
         this.telegramProperty = telegramProperty;
         this.dispatcherService = dispatcherService;

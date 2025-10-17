@@ -1,4 +1,4 @@
-package com.maxshelll.dispatcher.enumeration;
+package com.maxshelll.dispatcher.dto;
 
 import org.telegram.telegrambots.meta.api.objects.Update;
 

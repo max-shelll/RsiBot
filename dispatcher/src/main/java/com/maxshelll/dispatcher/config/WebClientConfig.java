@@ -1,6 +1,5 @@
-package com.maxshelll.rsiservice.configuration;
+package com.maxshelll.dispatcher.config;
 
-import com.maxshelll.rsiservice.property.GatewayProperty;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,7 +11,7 @@ import org.springframework.web.reactive.function.client.WebClient;
 @RequiredArgsConstructor
 public class WebClientConfig {
 
-    private final GatewayProperty gatewayProperty;
+    private final GatewayProperties gatewayProperty;
 
     @Bean
     public WebClient webClient() {
@@ -21,4 +20,5 @@ public class WebClientConfig {
                 .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                 .build();
     }
+
 }

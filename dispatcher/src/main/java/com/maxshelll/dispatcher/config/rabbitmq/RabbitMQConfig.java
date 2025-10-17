@@ -1,6 +1,5 @@
-package com.maxshelll.dispatcher.configuration;
+package com.maxshelll.dispatcher.config.rabbitmq;
 
-import com.maxshelll.dispatcher.property.rabbitmq.RabbitMQProperty;
 import lombok.RequiredArgsConstructor;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.core.QueueBuilder;
@@ -13,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 @RequiredArgsConstructor
 public class RabbitMQConfig {
 
-    private final RabbitMQProperty rabbitMQProperty;
+    private final RabbitMQProperties rabbitMQProperty;
 
     @Bean
     public MessageConverter jsonMessageConverter() {

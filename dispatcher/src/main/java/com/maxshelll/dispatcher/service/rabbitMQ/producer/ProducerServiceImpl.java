@@ -1,6 +1,6 @@
 package com.maxshelll.dispatcher.service.rabbitMQ.producer;
 
-import com.maxshelll.dispatcher.property.rabbitmq.RabbitMQProperty;
+import com.maxshelll.dispatcher.config.rabbitmq.RabbitMQProperties;
 import lombok.RequiredArgsConstructor;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
@@ -12,7 +12,7 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 public class ProducerServiceImpl implements ProducerService {
 
     private final RabbitTemplate rabbitTemplate;
-    private final RabbitMQProperty rabbitMQProperty;
+    private final RabbitMQProperties rabbitMQProperty;
 
     @Override
     public void produceMessage(Update update) {

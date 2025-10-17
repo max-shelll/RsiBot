@@ -1,6 +1,6 @@
 package com.maxshelll.dispatcher.service.rabbitMQ.consumer;
 
-import com.maxshelll.dispatcher.property.GatewayProperty;
+import com.maxshelll.dispatcher.config.GatewayProperties;
 import com.maxshelll.dispatcher.service.rabbitMQ.producer.ProducerService;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
@@ -18,7 +18,7 @@ import java.net.URI;
 public class MessageConsumerService {
 
     private final ProducerService producerService;
-    private final GatewayProperty gatewayProperty;
+    private final GatewayProperties gatewayProperty;
     private final WebClient webClient;
 
     @SneakyThrows
