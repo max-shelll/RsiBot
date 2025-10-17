@@ -6,6 +6,7 @@
       <list>
         <option value="$PROJECT_DIR$/Dispatcher/pom.xml" />
         <option value="$PROJECT_DIR$/RsiService/pom.xml" />
+        <option value="$PROJECT_DIR$/rsi-service/pom.xml" />
       </list>
     </option>
   </component>

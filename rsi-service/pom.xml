@@ -11,10 +11,10 @@
     </parent>
 
     <groupId>com.max-shelll</groupId>
-    <artifactId>RsiService</artifactId>
+    <artifactId>rsi-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>RsiService</name>
-    <description>RsiService</description>
+    <name>rsi-service</name>
+    <description>rsi-service</description>
     <url/>
 
     <licenses>
