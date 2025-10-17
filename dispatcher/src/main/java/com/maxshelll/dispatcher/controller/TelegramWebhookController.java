@@ -1,6 +1,6 @@
 package com.maxshelll.dispatcher.controller;
 
-import com.maxshelll.dispatcher.service.DispatcherService;
+import com.maxshelll.dispatcher.controller.update.MessageUpdateController;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +14,7 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 @RequiredArgsConstructor
 public class TelegramWebhookController {
 
-    private final DispatcherService dispatcherService;
+    private final MessageUpdateController  messageUpdateController;
 
     @PostMapping("/callback/update")
     public ResponseEntity<Void> request(@RequestBody Update update) {
@@ -23,7 +23,7 @@ public class TelegramWebhookController {
             return ResponseEntity.ok().build();
         }
 
-        dispatcherService.updateDistribute(update);
+        messageUpdateController.request(update);
         return ResponseEntity.ok().build();
     }
 }
