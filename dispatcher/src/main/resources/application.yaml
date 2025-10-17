@@ -20,4 +20,4 @@ telegram:
 
 gateway:
   base: "http://localhost:8090"
-  rsi: "http://localhost:8090/api/v1/rsi"
+  rsi: "http://localhost:8090/api/v1/bingX/rsi"

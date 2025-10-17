@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api/v1/rsi")
-public class RsiController {
+@RequestMapping("/api/v1/bingX/rsi")
+public class BingXRsiController {
 
     private final RSIService rsiService;
 
