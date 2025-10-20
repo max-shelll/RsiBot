@@ -27,7 +27,7 @@ Each service operates independently — enabling flexible scaling, clean separat
 ---
 
 ## 🧱 Architecture Overview
-RsiBot Microservices
+RsiBot Microservices    
 ├── rsi-service → Calculates RSI values from market data   
 ├── dispatcher → Handles event routing & inter-service communication    
 
@@ -35,7 +35,7 @@ RsiBot Microservices
 
 ---
 
-## ⚡ Installation & Run
+## ⚡ Installation & Run   
 ```bash
 # Clone repository
 git clone https://github.com/max-shelll/RsiBot.git
