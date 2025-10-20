@@ -28,8 +28,8 @@ Each service operates independently — enabling flexible scaling, clean separat
 
 ## 🧱 Architecture Overview
 RsiBot Microservices
-├── rsi-service → Calculates RSI values from market data
-├── dispatcher → Handles event routing & inter-service communication
+├── rsi-service → Calculates RSI values from market data   
+├── dispatcher → Handles event routing & inter-service communication    
 
 ---
 
