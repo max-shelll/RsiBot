@@ -24,14 +24,10 @@ Each service operates independently — enabling flexible scaling, clean separat
 
 ---
 
----
-
 ## 🧱 Architecture Overview
 RsiBot Microservices    
 ├── rsi-service → Calculates RSI values from market data   
 ├── dispatcher → Handles event routing & inter-service communication    
-
----
 
 ---
 
@@ -51,8 +47,6 @@ java -jar dispatcher/target/dispatcher.jar
 
 ---
 
----
-
 ## ⚙️ Configuration
 Adjust environment variables or config files for:
 
@@ -60,5 +54,3 @@ Adjust environment variables or config files for:
 * `OVERBOUGHT` / `OVERSOLD` thresholds (e.g., 70 / 30)
 * Data source endpoint (API / WebSocket)
 * Dispatcher routes or webhook URLs
-
----
